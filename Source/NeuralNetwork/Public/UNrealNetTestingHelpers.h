@@ -15,4 +15,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Neural Network Test")
 	static void TrainAndTestXOR();
+
+	UFUNCTION(BlueprintCallable, Category = "Neural Network Test")
+	static void TrainAndTestMNIST();
 };
