@@ -12,4 +12,7 @@ class NEURALNETWORK_API UNrealNetTestingHelpers : public UBlueprintFunctionLibra
 public:
 	UFUNCTION(BlueprintCallable, Category = "Neural Network Test")
 	static void RunForwardPassTest();
+
+	UFUNCTION(BlueprintCallable, Category = "Neural Network Test")
+	static void TrainAndTestXOR();
 };
