@@ -1,10 +1,10 @@
-#include "UNrealNetTestingHelpers.h"
+#include "UNeuralNetTestingHelpers.h"
 #include "FNeuralNetwork.h"
 
 #include "FMNISTLoader.h"
 #include "Misc/Paths.h"
 
-void UNrealNetTestingHelpers::RunForwardPassTest()
+void UNeuralNetTestingHelpers::RunForwardPassTest()
 {
 	FNeuralNetwork MyNetwork;
 
@@ -21,7 +21,7 @@ void UNrealNetTestingHelpers::RunForwardPassTest()
 	}
 }
 
-void UNrealNetTestingHelpers::TrainAndTestXOR()
+void UNeuralNetTestingHelpers::TrainAndTestXOR()
 {
 	FNeuralNetwork MyNetwork;
 
@@ -62,7 +62,7 @@ void UNrealNetTestingHelpers::TrainAndTestXOR()
 	}
 }
 
-void UNrealNetTestingHelpers::TrainAndTestMNIST()
+void UNeuralNetTestingHelpers::TrainAndTestMNIST()
 {
 	FMNISTDataset Dataset; // make this in settings or something like that ?
 	FString ImagePath = FPaths::ProjectContentDir() + "MNIST/train-images.idx3-ubyte";

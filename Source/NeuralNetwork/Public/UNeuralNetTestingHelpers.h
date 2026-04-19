@@ -2,10 +2,10 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "UNrealNetTestingHelpers.generated.h"
+#include "UNeuralNetTestingHelpers.generated.h"
 
 UCLASS()
-class NEURALNETWORK_API UNrealNetTestingHelpers : public UBlueprintFunctionLibrary
+class NEURALNETWORK_API UNeuralNetTestingHelpers : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 	
