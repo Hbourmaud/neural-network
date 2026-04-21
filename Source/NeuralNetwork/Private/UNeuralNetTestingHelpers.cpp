@@ -17,7 +17,7 @@ void UNeuralNetTestingHelpers::RunForwardPassTest()
 	if (Prediction.Num() > 0){
 		UE_LOG(LogTemp, Log, TEXT("Forward pass test completed. Output: %f"), Prediction[0]);
 	} else {
-		UE_LOG(LogTemp, Warning, TEXT("Forward pass test completed. No output generated."));
+		UE_LOG(LogTemp, Warning, TEXT("Forward pass test completed."));
 	}
 }
 
@@ -64,7 +64,7 @@ void UNeuralNetTestingHelpers::TrainAndTestXOR()
 
 void UNeuralNetTestingHelpers::TrainAndTestMNIST()
 {
-	FMNISTDataset Dataset; // make this in settings or something like that ?
+	FMNISTDataset Dataset;
 	FString ImagePath = FPaths::ProjectContentDir() + "MNIST/train-images.idx3-ubyte";
 	FString LabelPath = FPaths::ProjectContentDir() + "MNIST/train-labels.idx1-ubyte";
 
@@ -79,7 +79,7 @@ void UNeuralNetTestingHelpers::TrainAndTestMNIST()
 	float LearningRate = 0.1f;
 	int32 NumTests = 20;
 
-	int32 TrainingSamples = FMath::Min(60000, Dataset.Images.Num() - NumTests); // to settings ?
+	int32 TrainingSamples = FMath::Min(60000, Dataset.Images.Num() - NumTests);
 
 	UE_LOG(LogTemp, Warning, TEXT("Starting MNIST Training on %d images"), TrainingSamples);
 
@@ -87,7 +87,7 @@ void UNeuralNetTestingHelpers::TrainAndTestMNIST()
 		MyNetwork.Learn(Dataset.Images[i], Dataset.Labels[i], LearningRate);
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("MNIST Training complete! Testing on images :"));
+	UE_LOG(LogTemp, Warning, TEXT("MNIST Training complete. Testing on images :"));
 
 	int32 TestStart = TrainingSamples;
 	int32 CorrectAnswers = 0;
@@ -118,9 +118,9 @@ void UNeuralNetTestingHelpers::TrainAndTestMNIST()
 		if (PredictedDigit == ActualDigit) {
 			CorrectAnswers++;
 
-			UE_LOG(LogTemp, Log, TEXT("SUCCESS -> Expected: %d, Guessed: %d (Confidence: %.2f)"), ActualDigit, PredictedDigit, HighestConfidence);
+			UE_LOG(LogTemp, Log, TEXT("SUCCESS Expected: %d, Guessed: %d (Confidence: %.2f)"), ActualDigit, PredictedDigit, HighestConfidence);
 		} else {
-			UE_LOG(LogTemp, Error, TEXT("FAIL -> Expected: %d, Guessed: %d"), ActualDigit, PredictedDigit);
+			UE_LOG(LogTemp, Error, TEXT("FAIL Expected: %d, Guessed: %d"), ActualDigit, PredictedDigit);
 		}
 	}
 
